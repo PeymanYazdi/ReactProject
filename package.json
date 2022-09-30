@@ -18,8 +18,14 @@
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install client/.husky"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx pretty-quick --staged ng lint ng test",
+      "pre-push": "ng build --aot true"
+    }},
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -39,6 +45,11 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "eslint": "^8.24.0",
+    "eslint-plugin-react": "^7.31.8",
+    "gh-pages": "^4.0.0",
+    "husky": "^8.0.1",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3"
   }
 }
